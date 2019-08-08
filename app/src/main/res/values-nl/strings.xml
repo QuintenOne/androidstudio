@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Croes Quinten\'s Applicatie</string>
+    <string name="age">Leeftijd</string>
+    <string name="color">Kleur</string>
+    <string name="last_student">Laatste student:</string>
+    <string name="no_student">Geen student</string>
+    <string name="animal">Lievelingsdier</string>
+</resources>
