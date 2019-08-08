@@ -41,9 +41,11 @@ public class DetailFragment extends Fragment {
             ((TextView) view.findViewById(R.id.txtAnimal)).setText(cursor.getString(4));
         }
 
+        /*
+        //UNUSED
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(MainActivity.getContext());
         int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(MainActivity.getContext(), StudentWidget.class));
-
         StudentWidget.updateStudentWidgets(MainActivity.getContext(), appWidgetManager, appWidgetIds);
+        */
     }
 }
