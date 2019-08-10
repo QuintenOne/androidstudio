@@ -6,11 +6,11 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-
-import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         mainActivity = this;
         detailFragment = new DetailFragment();
 
@@ -38,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
             fragmentTransaction.replace(R.id.fr_details, detailFragment);
             fragmentTransaction.commit();
         }
+
 
     }
 
@@ -61,5 +61,19 @@ public class MainActivity extends AppCompatActivity {
         int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(this, StudentWidget.class));
 
         StudentWidget.updateStudentWidgets(this, appWidgetManager, appWidgetIds);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.fr_main) {
+            NavUtils.navigateUpFromSameTask(this);
+        }
+
+        return true;
+    }
+
+    public void onSettings(View view) {
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
     }
 }
