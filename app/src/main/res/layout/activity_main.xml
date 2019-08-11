@@ -27,7 +27,18 @@
                 android:textSize="24sp" />
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/espresso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10sp"
+                android:layout_weight="1"
+                android:contentDescription=""
+                android:onClick="onEspresso"
+                app:srcCompat="@android:drawable/ic_menu_view"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/settings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10sp"
@@ -44,7 +55,7 @@
         android:id="@+id/fr_main"
         android:name="q.projectquinten.MainFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 
 </LinearLayout>
 

@@ -8,8 +8,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.i("QQQ", "Start");
+
         new DatabaseFiller(getContentResolver()).addValues();
 
         super.onCreate(savedInstanceState);
@@ -37,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
             fragmentTransaction.replace(R.id.fr_details, detailFragment);
             fragmentTransaction.commit();
         }
-
 
     }
 
@@ -74,6 +77,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void onSettings(View view) {
         Intent intent = new Intent(this, SettingsActivity.class);
+        intent.putExtra("id", 5);
         startActivity(intent);
+    }
+
+    public void onEspresso(View view) {
+
+        ImageView espressoButton = findViewById(R.id.espresso);
+        espressoButton.setVisibility(View.INVISIBLE);
+
+        try {
+            MyTask.execute();
+            Log.i("QQQ", "OK!");
+        } catch (Exception e) {
+            Log.i("QQQ", "Error: " + e.getMessage());
+        }
     }
 }

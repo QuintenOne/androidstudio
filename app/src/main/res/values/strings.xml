@@ -3,6 +3,6 @@
     <string name="last_student">Last Student:</string>
     <string name="color">Color</string>
     <string name="age">Age</string>
-    <string name="animal">"Favourite animal "</string>
+    <string name="animal">"Animal "</string>
     <string name="no_student">No Student</string>
 </resources>
