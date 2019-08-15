@@ -1,11 +1,12 @@
 package q.projectquinten;
 
-
+import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.util.Log;
 
-public class MyTask {
-    public static AsyncTask<Integer, Integer, Integer> task = new AsyncTask<Integer, Integer, Integer>() {
+class MyTask {
+    @SuppressLint("StaticFieldLeak")
+    private static AsyncTask<Integer, Integer, Integer> task = new AsyncTask<Integer, Integer, Integer>() {
         @Override
         protected Integer doInBackground(Integer... integers) {
 
@@ -15,6 +16,8 @@ public class MyTask {
                 for (int i = 0; i < primes.length && i < 100; i++) {
                     Thread.sleep(i);
                     Log.i("QQQ", String.valueOf(primes[i]));
+
+                    publishProgress(primes[i]);
                 }
             } catch (Exception e) {
                 Log.i("QQQ", "Error2: " + e.getMessage());
@@ -22,9 +25,14 @@ public class MyTask {
 
             return null;
         }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+        }
     };
 
-    public static void execute() {
-        task.execute();
+    static AsyncTask<Integer, Integer, Integer> execute() {
+        return task.execute();
     }
 }

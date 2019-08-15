@@ -24,6 +24,10 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
-        Log.i("QQQ", "Preference: " + s);
+        String val = sharedPreferences.getString(s, "normal");
+        getPreferenceScreen().getPreference(0).setSummary(val);
+
+        Log.i("QQQ", "Preference: " + val);
+
     }
 }

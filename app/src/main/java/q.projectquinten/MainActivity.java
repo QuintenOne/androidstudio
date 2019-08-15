@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void onSettings(View view) {
         Intent intent = new Intent(this, SettingsActivity.class);
-        intent.putExtra("id", 5);
         startActivity(intent);
     }
 
